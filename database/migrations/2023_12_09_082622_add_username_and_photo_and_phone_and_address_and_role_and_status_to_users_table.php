@@ -11,12 +11,14 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('username')->unique();
-            $table->string('photo')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('address')->nullable();
-            $table->enum('role', ['user', 'vendor', 'admin'])->default('user');
-            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->after('password', function (Blueprint $table) {
+                $table->string('username')->unique();
+                $table->string('photo')->nullable();
+                $table->string('phone')->nullable();
+                $table->string('address')->nullable();
+                $table->enum('role', ['user', 'vendor', 'admin'])->default('user');
+                $table->enum('status', ['active', 'inactive'])->default('active');
+            });
         });
     }
 
@@ -26,7 +28,7 @@ return new class extends Migration {
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->dropColumn(['username', 'photo', 'phone', 'address', 'role', 'status']);
         });
     }
 };
