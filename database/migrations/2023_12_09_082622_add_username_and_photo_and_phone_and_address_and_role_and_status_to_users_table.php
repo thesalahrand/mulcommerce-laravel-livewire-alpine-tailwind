@@ -1,5 +1,7 @@
 <?php
 
+use App\Enums\UserRole;
+use App\Enums\UserStatus;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,8 +18,8 @@ return new class extends Migration {
                 $table->string('photo')->nullable();
                 $table->string('phone')->nullable();
                 $table->string('address')->nullable();
-                $table->enum('role', ['user', 'vendor', 'admin'])->default('user');
-                $table->enum('status', ['active', 'inactive'])->default('active');
+                $table->enum('role', array_column(UserRole::cases(), 'value'))->default('user');
+                $table->enum('status', array_column(UserStatus::cases(), 'value'))->default('active');
             });
         });
     }
