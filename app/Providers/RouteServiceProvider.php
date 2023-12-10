@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Enums\UserRole;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -17,7 +18,14 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/dashboard';
+    public static function getHomeUrl(string $role): string
+    {
+        return [
+            UserRole::USER->value => '/dashboard',
+            UserRole::VENDOR->value => '/vendor/dashboard',
+            UserRole::ADMIN->value => '/admin/dashboard'
+        ][$role];
+    }
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
