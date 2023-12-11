@@ -18,11 +18,17 @@
 
 <body class="font-sans antialiased">
   <div class="min-h-screen flex flex-col sm:justify-center items-center px-2 py-6 bg-gray-100 dark:bg-gray-900">
-    <div class="flex items-center space-x-3">
-      <x-icons.application-logo class="w-9 h-9 fill-current text-gray-900 dark:text-white" />
-      <h1 class="text-xl font-bold text-gray-900 dark:text-white">
-        MulCommerce
-      </h1>
+    <div class="flex flex-col items-center space-y-3">
+      <div>
+        <x-theme-toggler />
+      </div>
+      <div class="flex items-center space-x-3">
+        <x-icons.application-logo class="w-9 h-9 fill-current text-gray-900 dark:text-white" />
+        <h1 class="text-xl font-bold text-gray-900 dark:text-white">
+          MulCommerce
+        </h1>
+      </div>
+
     </div>
 
     <div
