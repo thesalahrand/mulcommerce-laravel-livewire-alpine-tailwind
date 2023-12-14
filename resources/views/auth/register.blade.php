@@ -2,7 +2,7 @@
   <form method="POST" action="{{ route('register') }}">
     @csrf
 
-    <h5 class="text-xl font-semibold text-gray-900 dark:text-white"> Sign up to our platform </h5>
+    <h5 class="text-xl font-semibold text-gray-900 dark:text-white"> {{ __('Sign up to our platform') }} </h5>
 
     <!-- Name -->
     <div class="mt-6">
@@ -50,7 +50,8 @@
       {{ __('Register') }}
     </x-regular-button>
 
-    <div class="text-sm font-medium text-gray-500 dark:text-gray-300 mt-6">Already registered? <a
-        class="text-blue-700 hover:underline dark:text-blue-500" href="{{ route('login') }}">Login now</a></div>
+    <div class="text-sm font-medium text-gray-500 dark:text-gray-300 mt-6">{{ __('Already registered') }}? <a
+        class="text-blue-700 hover:underline dark:text-blue-500" href="{{ route('login') }}">{{ __('Login now') }}</a>
+    </div>
   </form>
 </x-guest-layout>

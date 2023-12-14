@@ -5,12 +5,12 @@
   <form method="POST" action="{{ route('login') }}">
     @csrf
 
-    <h5 class="text-xl font-semibold text-gray-900 dark:text-white"> Sign in to our platform </h5>
+    <h5 class="text-xl font-semibold text-gray-900 dark:text-white"> {{ __('Sign in to our platform') }} </h5>
 
     <!-- Session Status -->
 
     <div class="mt-6">
-      <x-input-label for="email_username" :value="__('Email/Username')" />
+      <x-input-label for="email_username" :value="__('Email') . '/' . __('Username')" />
       <x-text-input id="email_username" type="text" name="email_username" :value="old('email_username')" required autofocus
         autocomplete="email-username" />
       <x-input-error :messages="$errors->get('email_username')" />
@@ -37,9 +37,9 @@
       {{ __('Log in') }}
     </x-regular-button>
 
-    <div class="text-sm font-medium text-gray-500 dark:text-gray-300 mt-6"> Not registered? <a
-        class="text-blue-700 hover:underline dark:text-blue-500" href="{{ route('register') }}">Create
-        account</a></div>
+    <div class="text-sm font-medium text-gray-500 dark:text-gray-300 mt-6"> {{ __('Not registered') }}? <a
+        class="text-blue-700 hover:underline dark:text-blue-500"
+        href="{{ route('register') }}">{{ __('Create account') }}</a></div>
 
     {{-- <div class="flex items-center justify-end mt-4">
       @if (Route::has('password.request'))
