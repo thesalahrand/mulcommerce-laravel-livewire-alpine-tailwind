@@ -1,7 +1,13 @@
 <?php
 
 use App\Http\Controllers\LocalizationController;
+
 use App\Http\Controllers\ProfileController;
+
+use App\Http\Controllers\Admin\{
+    ProfileController as AdminProfileController
+};
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,9 +33,11 @@ Route::get('/locales/{locale}', LocalizationController::class);
 Route::middleware('localization')->group(function () {
     Route::middleware(['auth', 'role:user'])->group(function () {
         Route::view('/dashboard', 'dashboard')->name('dashboard');
-        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+        Route::prefix('/profile')->controller(ProfileController::class)->name('profile.')->group(function () {
+            Route::get('/', 'edit')->name('edit');
+            Route::patch('/', 'update')->name('update');
+            Route::delete('/', 'destroy')->name('destroy');
+        });
     });
 
     Route::middleware(['auth', 'role:vendor'])->prefix('/vendor')->name('vendor.')->group(function () {
@@ -38,6 +46,11 @@ Route::middleware('localization')->group(function () {
 
     Route::middleware(['auth', 'role:admin'])->prefix('/admin')->name('admin.')->group(function () {
         Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
+        Route::prefix('/profile')->controller(AdminProfileController::class)->name('profile.')->group(function () {
+            Route::get('/', 'edit')->name('edit');
+            Route::patch('/', 'update')->name('update');
+            Route::delete('/', 'destroy')->name('destroy');
+        });
     });
 
     require __DIR__ . '/auth.php';

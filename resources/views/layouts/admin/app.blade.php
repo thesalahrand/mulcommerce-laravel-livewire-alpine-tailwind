@@ -10,7 +10,7 @@
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.bunny.net">
-  <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.bunny.net/css?family=figtree:400,500,600,700,800,900&display=swap" rel="stylesheet" />
 
   {{-- Favicon  --}}
   <link rel="apple-touch-icon" sizes="180x180" href="https://laravel.com//img/favicon/apple-touch-icon.png">
@@ -48,10 +48,18 @@
 
   @include('layouts.admin.sidebar')
 
-  <div class="p-4 sm:ml-64">
-    {{ $slot }}
-    {{-- <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
-      <div class="grid grid-cols-3 gap-4 mb-4">
+  <div class="p-4 sm:ml-64 mt-12">
+    <div class="pt-4">
+      <!-- Page Heading -->
+      @if (isset($header))
+        <h2 class="font-bold text-xl text-gray-900 dark:text-white leading-tight mb-6">
+          {{ __('Edit Profile') }}
+        </h2>
+      @endif
+
+      {{ $slot }}
+    </div>
+    {{-- <div class="grid grid-cols-3 gap-4 mb-4">
         <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
           <p class="text-2xl text-gray-400 dark:text-gray-500">
             <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -173,8 +181,7 @@
             </svg>
           </p>
         </div>
-      </div>
-    </div> --}}
+      </div> --}}
   </div>
 </body>
 
