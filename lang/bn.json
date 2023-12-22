@@ -5,6 +5,7 @@
     "A new verification link has been sent to your email address.": "আপনার ইমেল ঠিকানায় একটি নতুন যাচাইকরণ লিঙ্ক পাঠানো হয়েছে।",
     "A Timeout Occurred": "একটি টাইমআউট ঘটেছে৷",
     "Accepted": "গৃহীত",
+    "Address": "ঠিকানা",
     "All rights reserved.": "সমস্ত অধিকার সংরক্ষিত।",
     "Already registered": "ইতিমধ্যে নিবন্ধন করেছেন",
     "Already Reported": "ইতিমধ্যে রিপোর্ট করা হয়েছে",
@@ -88,6 +89,8 @@
     "Payload Too Large": "পেলোড খুব বড়",
     "Payment Required": "পেমেন্ট আবশ্যক",
     "Permanent Redirect": "স্থায়ী পুনর্নির্দেশ",
+    "Phone": "ফোন",
+    "Photo": "ছবি",
     "Please click the button below to verify your email address.": "আপনার ইমেল ঠিকানা যাচাই করার জন্য নিচের বাটনে ক্লিক করুন ।",
     "Precondition Failed": "পূর্বশর্ত ব্যর্থ হয়েছে",
     "Precondition Required": "পূর্বশর্ত আবশ্যক",
@@ -147,5 +150,6 @@
     "Whoops!": "ওপসস!",
     "You are receiving this email because we received a password reset request for your account.": "আমরা আপনার অ্যাকাউন্টের জন্য একটি পাসওয়ার্ড রিসেট অনুরোধ পেয়েছি, কারণ আপনি এই ইমেইল পাচ্ছেন ।",
     "You're logged in!": "আপনি লগ ইন করছেন!",
-    "Your email address is unverified.": "আপনার ইমেল ঠিকানা যাচাই করা হয়নি।"
+    "Your email address is unverified.": "আপনার ইমেল ঠিকানা যাচাই করা হয়নি।",
+    "Your photo must be in JPG format (max 1 MB)": "আপনার ছবি JPG ফর্ম্যাটে হতে হবে (সর্বোচ্চ 1 MB)"
 }
