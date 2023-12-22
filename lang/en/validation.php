@@ -170,8 +170,8 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'username' => [
+            'regex' => 'The :attribute field must only contain lowercase letters, numbers, and underscores.'
         ],
     ],
 

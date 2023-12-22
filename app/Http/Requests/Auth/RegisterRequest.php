@@ -26,8 +26,20 @@ class RegisterRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
-            'username' => ['required', 'string', 'lowercase', 'min:3', 'max:16', 'regex:/^[a-z0-9_-]+$/', 'unique:' . User::class],
+            'username' => ['required', 'string', 'lowercase', 'min:3', 'max:12', 'regex:/^[a-z0-9_]+$/', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ];
     }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array<string, string>
+     */
+    // public function messages(): array
+    // {
+    //     return [
+    //         'username.regex' => 'The :attribute field must only contain lowercase letters, numbers, and underscores.',
+    //     ];
+    // }
 }

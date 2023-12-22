@@ -57,8 +57,8 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
       <div>
         <x-input-label for="username" :value="__('Username')" />
-        <x-text-input id="username" name="username" type="text" :value="old('username', $user->username)" required
-          autocomplete="username" />
+        <x-text-input id="username" name="username" type="text" :value="old('username', $user->username)" minlength="3" maxlength="12"
+          required autocomplete="username" />
         <x-input-error :messages="$errors->get('username')" />
       </div>
       <div>

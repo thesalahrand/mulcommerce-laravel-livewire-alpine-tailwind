@@ -26,10 +26,22 @@ class ProfileUpdateRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
-            'username' => ['required', 'string', 'lowercase', 'min:3', 'max:16', 'regex:/^[a-z0-9_-]+$/', Rule::unique(User::class)->ignore($this->user()->id)],
+            'username' => ['required', 'string', 'lowercase', 'min:3', 'max:12', 'regex:/^[a-z0-9_]+$/', Rule::unique(User::class)->ignore($this->user()->id)],
             'phone' => ['nullable', 'string', 'max:255'],
             'photo' => ['nullable', 'file', 'mimetypes:image/jpeg', 'max:1024'],
             'address' => ['nullable', 'string', 'max:255'],
         ];
     }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array<string, string>
+     */
+    // public function messages(): array
+    // {
+    //     return [
+    //         'username.regex' => 'The :attribute field must only contain lowercase letters, numbers, and underscores.',
+    //     ];
+    // }
 }
