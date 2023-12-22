@@ -74,7 +74,7 @@
         <x-input-label for="photo" :value="__('Photo')" />
         <x-file-input id="photo" name="photo" type="file" accept=".jpg, .jpeg" @change="fileChosen" />
         <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">
-          {{ __('Your photo must be in JPG format (max 1 MB)') }}</div>
+          {{ __('Your photo must be in JPG format (max 1 MB).') }}</div>
         <x-input-error :messages="$errors->get('photo')" />
         <img :src="imageUrl" class="rounded mt-2 w-32 h-32 object-cover" alt="user-photo">
       </div>
@@ -86,10 +86,11 @@
     </div>
 
     <x-regular-button color="blue" class="mt-6">{{ __('Save') }}</x-regular-button>
-    @if (session('status') === 'profile-updated')
+
+    {{-- @if (session('status') === 'profile-updated')
       <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"
         class="text-sm text-gray-600 dark:text-gray-400">{{ __('Saved.') }}</p>
-    @endif
+    @endif --}}
     {{-- <div class="flex items-center gap-4">
 
     </div> --}}

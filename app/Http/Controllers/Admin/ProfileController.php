@@ -43,7 +43,14 @@ class ProfileController extends Controller
 
         // $request->user()->save();
 
-        return Redirect::route('admin.profile.edit')->with('status', 'profile-updated');
+        // return Redirect::route('admin.profile.edit')->with('status', 'profile-updated');
+        $request->session()->flash('flash', [
+            'toast-message' => [
+                'type' => 'success',
+                'message' => trans('Profile information updated successfully.')
+            ]
+        ]);
+        return Redirect::route('admin.profile.edit');
     }
 
     /**
