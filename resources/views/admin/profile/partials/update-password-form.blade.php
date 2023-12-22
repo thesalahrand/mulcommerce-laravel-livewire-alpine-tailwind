@@ -9,7 +9,7 @@
     </p>
   </header> --}}
 
-  <form method="post" action="{{ route('password.update') }}">
+  <form method="post" action="{{ route('password.update') }}" @submit="storeCurrScrollPosition">
     @csrf
     @method('put')
 

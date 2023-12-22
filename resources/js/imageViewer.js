@@ -2,15 +2,14 @@ const imageViewer = (imageUrl) => {
     return {
         imageUrl,
 
-        fileChosen(event) {
-            this.fileToDataUrl(event, (src) => (this.imageUrl = src));
+        fileChosen(e) {
+            this.fileToDataUrl(e, (src) => (this.imageUrl = src));
         },
 
-        fileToDataUrl(event, callback) {
-            if (!event.target.files.length) return;
-            console.log("Hello");
+        fileToDataUrl(e, callback) {
+            if (!e.target.files.length) return;
 
-            let file = event.target.files[0],
+            let file = e.target.files[0],
                 reader = new FileReader();
 
             reader.readAsDataURL(file);
