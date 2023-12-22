@@ -24,7 +24,7 @@ return [
     'boolean' => ':Attribute স্থানে  সত্য বা মিথ্যা হতে হবে।',
     'can' => ':Attribute ক্ষেত্রটিতে একটি অননুমোদিত মান রয়েছে।',
     'confirmed' => ':Attribute ক্ষেত্রটি নিশ্চিতকরণ এর সাথে মিলছে না।',
-    'current_password' => 'বর্তমান পাসওয়ার্ড।',
+    'current_password' => 'বর্তমান পাসওয়ার্ডটি ভুল।',
     'date' => ':Attribute একটি বৈধ তারিখ নয়।',
     'date_equals' => 'এই :attribute সমান তারিখ হতে হবে :date।',
     'date_format' => ':Attribute, :format এর সাথে বিন্যাস মিলছে না।',
