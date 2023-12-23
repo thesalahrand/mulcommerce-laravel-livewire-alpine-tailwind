@@ -8,6 +8,10 @@ use App\Http\Controllers\Admin\{
     ProfileController as AdminProfileController
 };
 
+use App\Http\Controllers\Vendor\{
+    ProfileController as VendorProfileController
+};
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,6 +47,11 @@ Route::middleware('localization')->group(function () {
 
     Route::middleware(['auth', 'role:vendor'])->prefix('/vendor')->name('vendor.')->group(function () {
         Route::view('/dashboard', 'vendor.dashboard')->name('dashboard');
+        Route::prefix('/profile')->controller(VendorProfileController::class)->name('profile.')->group(function () {
+            Route::get('/', 'edit')->name('edit');
+            Route::patch('/', 'update')->name('update');
+            Route::delete('/', 'destroy')->name('destroy');
+        });
     });
 
     Route::middleware(['auth', 'role:admin'])->prefix('/admin')->name('admin.')->group(function () {

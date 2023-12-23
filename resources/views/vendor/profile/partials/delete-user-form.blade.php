@@ -69,7 +69,7 @@
               </button>
             </div>
             <div class="p-4 md:p-5">
-              <form action="{{ route('admin.profile.destroy') }}" method="post">
+              <form action="{{ route('vendor.profile.destroy') }}" method="post">
                 @csrf
                 @method('delete')
 
