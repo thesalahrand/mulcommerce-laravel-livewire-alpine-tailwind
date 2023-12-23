@@ -42,11 +42,11 @@
       <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" />
     </div>
 
-    <x-regular-button color="blue" class="mt-6">{{ __('Save') }}</x-regular-button>
+    <x-regular-button class="mt-6">{{ __('Save') }}</x-regular-button>
 
     {{--
     <div class="flex items-center gap-4">
-      <x-regular-button color="blue">{{ __('Save') }}</x-regular-button>
+      <x-regular-button>{{ __('Save') }}</x-regular-button>
 
       @if (session('status') === 'password-updated')
         <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"

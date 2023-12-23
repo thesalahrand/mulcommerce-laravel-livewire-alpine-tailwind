@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/locales/{locale}', LocalizationController::class);
+Route::redirect('/', '/login');
 // Route::get('/', function () {
 //     return view('welcome');
 // });

@@ -70,7 +70,7 @@
 
     {{-- Photo, Address --}}
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
-      <div x-data="imageViewer('{{ asset("storage/{$user->photo}") }}')">
+      <div x-data="imageViewer(@js(asset("storage/{$user->photo}")))">
         <x-input-label for="photo" :value="__('Photo')" />
         <x-file-input id="photo" name="photo" type="file" accept=".jpg, .jpeg" @change="fileChosen" />
         <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">
@@ -85,7 +85,7 @@
       </div>
     </div>
 
-    <x-regular-button color="blue" class="mt-6">{{ __('Save') }}</x-regular-button>
+    <x-regular-button class="mt-6">{{ __('Save') }}</x-regular-button>
 
     {{-- @if (session('status') === 'profile-updated')
       <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"

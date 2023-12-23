@@ -46,7 +46,7 @@
       </div>
     </div>
 
-    <x-regular-button color='blue' class="w-full mt-6">
+    <x-regular-button class="w-full mt-6">
       {{ __('Register') }}
     </x-regular-button>
 

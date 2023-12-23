@@ -7,8 +7,7 @@
 
     <h5 class="text-xl font-semibold text-gray-900 dark:text-white"> {{ __('Sign in to our platform') }} </h5>
 
-    <!-- Session Status -->
-
+    <!-- Email/Username -->
     <div class="mt-6">
       <x-input-label for="email_username" :value="__('Email') . '/' . __('Username')" />
       <x-text-input id="email_username" type="text" name="email_username" :value="old('email_username')" required autofocus
@@ -33,7 +32,7 @@
       </div>
     </div>
 
-    <x-regular-button color='blue' class="w-full mt-6">
+    <x-regular-button class="w-full mt-6">
       {{ __('Log in') }}
     </x-regular-button>
 
