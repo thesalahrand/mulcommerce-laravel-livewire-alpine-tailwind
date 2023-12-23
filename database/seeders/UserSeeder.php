@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
             'role' => 'user',
         ]);
 
-        \App\Models\User::factory()->count(10)->create([
+        \App\Models\User::factory()->count(10)->hasVendorDetails()->create([
             'role' => 'vendor',
         ]);
 

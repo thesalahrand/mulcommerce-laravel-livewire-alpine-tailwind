@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Vendor\ProfileUpdateRequest;
+use App\Http\Requests\Admin\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +19,7 @@ class ProfileController extends Controller
     public function edit(Request $request): View
     {
         return view('admin.profile.edit', [
-            'user' => $request->user()->with('vendor')->get(),
+            'user' => $request->user(),
         ]);
     }
 
@@ -35,9 +35,7 @@ class ProfileController extends Controller
             $validated['photo'] = $validated['photo']->store('users', 'public');
         }
 
-        $user = $request->user();
-        $user->update($validated);
-        $user->vendor()->update($validated);
+        $request->user()->update($validated);
 
         // if ($request->user()->isDirty('email')) {
         //     $request->user()->email_verified_at = null;
@@ -52,7 +50,7 @@ class ProfileController extends Controller
                 'message' => trans('Profile information updated successfully.')
             ]
         ]);
-        return Redirect::route('admin.profile.edit');
+        return back();
     }
 
     /**

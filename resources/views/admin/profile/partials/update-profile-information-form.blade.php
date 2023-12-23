@@ -13,7 +13,7 @@
     @csrf
   </form> --}}
 
-  <form method="post" action="{{ route('vendor.profile.update') }}" enctype="multipart/form-data">
+  <form method="post" action="{{ route('admin.profile.update') }}" enctype="multipart/form-data">
     @csrf
     @method('patch')
 
@@ -68,22 +68,7 @@
       </div>
     </div>
 
-    {{-- Founded In, Address --}}
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
-      <div>
-        <x-input-label for="founded_in" :value="__('Founded in')" />
-        <x-text-input id="founded_in" name="founded_in" type="date" max="{{ now()->format('Y-m-d') }}"
-          :value="old('founded_in', $user->vendorDetails->founded_in)" />
-        <x-input-error :messages="$errors->get('founded_in')" />
-      </div>
-      <div>
-        <x-input-label for="address" :value="__('Address')" />
-        <x-text-input id="address" name="address" type="text" :value="old('address', $user->address)" autocomplete="address" />
-        <x-input-error :messages="$errors->get('address')" />
-      </div>
-    </div>
-
-    {{-- Photo, Additional Info --}}
+    {{-- Photo, Address --}}
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
       <div x-data="imageViewer(@js(asset("storage/{$user->photo}")))">
         <x-input-label for="photo" :value="__('Photo')" />
@@ -94,10 +79,9 @@
         <img :src="imageUrl" class="rounded mt-2 w-32 h-32 object-cover" alt="user-photo">
       </div>
       <div>
-        <x-input-label for="additional_info" :value="__('Additional Info')" />
-        <x-textarea-input rows="9" id="additional_info" name="additional_info"
-          autocomplete="additional_info">{{ old('additional_info', $user->vendorDetails->additional_info) }}</x-textarea-input>
-        <x-input-error :messages="$errors->get('additional_info')" />
+        <x-input-label for="address" :value="__('Address')" />
+        <x-text-input id="address" name="address" type="text" :value="old('address', $user->address)" autocomplete="address" />
+        <x-input-error :messages="$errors->get('address')" />
       </div>
     </div>
 

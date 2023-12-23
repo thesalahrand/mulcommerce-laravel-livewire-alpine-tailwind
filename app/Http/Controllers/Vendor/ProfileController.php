@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Vendor;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\ProfileUpdateRequest;
+use App\Http\Requests\Vendor\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,8 +18,10 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+        $user = $request->user();
+
         return view('vendor.profile.edit', [
-            'user' => $request->user(),
+            'user' => $user->with('vendorDetails')->find($user->id)
         ]);
     }
 
@@ -35,7 +37,9 @@ class ProfileController extends Controller
             $validated['photo'] = $validated['photo']->store('users', 'public');
         }
 
-        $request->user()->update($validated);
+        $user = $request->user();
+        $user->update(collect($validated)->except('founded_in', 'additional_info')->toArray());
+        $user->vendorDetails()->update(collect($validated)->only('founded_in', 'additional_info')->toArray());
 
         // if ($request->user()->isDirty('email')) {
         //     $request->user()->email_verified_at = null;
@@ -50,7 +54,7 @@ class ProfileController extends Controller
                 'message' => trans('Profile information updated successfully.')
             ]
         ]);
-        return back();
+        return Redirect::route('vendor.profile.edit');
     }
 
     /**
