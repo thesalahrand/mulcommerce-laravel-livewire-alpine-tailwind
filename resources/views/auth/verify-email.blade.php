@@ -1,13 +1,14 @@
 <x-guest-layout>
-  <div class="space-y-4">
+  <div class="space-y-6">
+    <h5 class="text-xl font-semibold text-gray-900 dark:text-white"> {{ __('Complete Email Verification') }} </h5>
+
     <div class="text-sm text-gray-500 dark:text-gray-400">
       {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
     </div>
 
     @if (session('status') == 'verification-link-sent')
-      <div class="font-medium text-sm text-green-500 dark:text-green-400">
-        {{ __('A new verification link has been sent to the email address you provided during registration.') }}
-      </div>
+      <x-auth-session-status class="mb-4"
+        status="{{ __('A new verification link has been sent to the email address you provided during registration.') }}" />
     @endif
 
     <div class="flex items-center justify-between">

@@ -1,5 +1,4 @@
 <x-guest-layout>
-  <!-- Email/Username -->
   <x-auth-session-status class="mb-4" :status="session('status')" />
 
   <form method="POST" action="{{ route('login') }}">
@@ -30,6 +29,8 @@
         </div>
         <x-input-label for="remember" :value="__('Remember me')" class="ms-2 mb-0" />
       </div>
+      <a href="{{ route('password.request') }}"
+        class="ms-auto text-sm text-blue-700 hover:underline dark:text-blue-500">Forgot Password?</a>
     </div>
 
     <x-regular-button class="w-full mt-6">
