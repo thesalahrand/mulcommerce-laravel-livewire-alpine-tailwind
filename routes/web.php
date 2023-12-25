@@ -36,7 +36,7 @@ Route::redirect('/', '/login');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('localization')->group(function () {
-    Route::middleware(['auth', 'role:user'])->group(function () {
+    Route::middleware(['auth', 'verified', 'role:user'])->group(function () {
         Route::view('/dashboard', 'dashboard')->name('dashboard');
         Route::prefix('/profile')->controller(ProfileController::class)->name('profile.')->group(function () {
             Route::get('/', 'edit')->name('edit');
