@@ -71,7 +71,7 @@
     {{-- Founded In, Address --}}
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
       <div>
-        <x-input-label for="founded_in" :value="__('Founded in')" />
+        <x-input-label for="founded_in" :value="__('Founded In')" />
         <x-text-input id="founded_in" name="founded_in" type="date" max="{{ now()->format('Y-m-d') }}"
           :value="old('founded_in', $user->vendorDetails->founded_in)" />
         <x-input-error :messages="$errors->get('founded_in')" />
@@ -85,7 +85,7 @@
 
     {{-- Photo, Additional Info --}}
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
-      <div x-data="imageViewer(@js(asset("storage/{$user->photo}")))">
+      <div x-data="imageViewer(@js($user->photo ? asset("storage/{$user->photo}") : asset('storage/users/user.png')))">
         <x-input-label for="photo" :value="__('Photo')" />
         <x-file-input id="photo" name="photo" type="file" accept=".jpg, .jpeg" @change="fileChosen" />
         <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">

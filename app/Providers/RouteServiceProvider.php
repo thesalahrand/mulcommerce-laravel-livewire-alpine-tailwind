@@ -21,9 +21,12 @@ class RouteServiceProvider extends ServiceProvider
     public static function getHomeUrl(string $role): string
     {
         return [
-            UserRole::USER->value => route('dashboard'),
-            UserRole::VENDOR->value => route('vendor.dashboard'),
-            UserRole::ADMIN->value => route('admin.dashboard')
+            UserRole::USER->value => 'home',
+            UserRole::VENDOR->value => 'vendor.dashboard',
+            UserRole::ADMIN->value => 'admin.dashboard',
+        // UserRole::USER->value => route('home'),
+        // UserRole::VENDOR->value => route('vendor.dashboard'),
+        // UserRole::ADMIN->value => route('admin.dashboard')
         ][$role];
     }
 

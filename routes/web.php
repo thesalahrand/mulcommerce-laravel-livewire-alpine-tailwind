@@ -26,7 +26,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/locales/{locale}', LocalizationController::class);
-Route::redirect('/', '/login');
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -37,7 +36,7 @@ Route::redirect('/', '/login');
 
 Route::middleware('localization')->group(function () {
     Route::middleware(['auth', 'verified', 'role:user'])->group(function () {
-        Route::view('/dashboard', 'dashboard')->name('dashboard');
+        Route::view('/', 'home')->name('home');
         Route::prefix('/profile')->controller(ProfileController::class)->name('profile.')->group(function () {
             Route::get('/', 'edit')->name('edit');
             Route::patch('/', 'update')->name('update');

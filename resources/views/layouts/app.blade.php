@@ -20,14 +20,13 @@
   <link rel="shortcut icon" href="https://laravel.com//img/favicon/favicon.ico">
   <meta name="msapplication-TileColor" content="#ff2d20">
 
-
   <!-- Scripts -->
   @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-sans antialiased">
+<body class="font-sans antialiased dark:bg-gray-900" x-data="preserveScroll" x-init="goToPrevScrollPosition">
   {{-- <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-    @include('layouts.navigation')
+      @include('layouts.navigation')
 
     <!-- Page Heading -->
     @if (isset($header))
@@ -43,8 +42,15 @@
       {{ $slot }}
     </main>
   </div> --}}
+  <x-toast-message />
 
+  <div class="min-h-screen dark:bg-gray-900">
+    @include('layouts.navigation')
 
+    <div class="mt-20">
+      {{ $slot }}
+    </div>
+  </div>
 </body>
 
 </html>

@@ -31,7 +31,7 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'username' => fake()->unique()->regexify('[a-z0-9_]{3,12}'),
-            'photo' => fake()->imageUrl(60, 60),
+            // 'photo' => fake()->imageUrl(60, 60),
             'phone' => fake()->unique()->phoneNumber(),
             'address' => fake()->address(),
             'role' => fake()->randomElement(array_column(UserRole::cases(), 'value')),
