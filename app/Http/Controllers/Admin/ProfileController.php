@@ -29,10 +29,11 @@ class ProfileController extends Controller
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         $validated = $request->validated();
+        $user = $request->user();
 
         if (isset($validated['photo'])) {
-            !is_null($request->user()->photo) && Storage::disk('public')->delete($request->user()->photo);
-            $validated['photo'] = $validated['photo']->store('users', 'public');
+            $user->clearMediaCollection('profile-photos');
+            $user->addMediaFromRequest('photo')->toMediaCollection('profile-photos');
         }
 
         $request->user()->update($validated);

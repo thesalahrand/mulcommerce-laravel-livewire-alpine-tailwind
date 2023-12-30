@@ -31,13 +31,13 @@ class ProfileController extends Controller
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         $validated = $request->validated();
+        $user = $request->user();
 
         if (isset($validated['photo'])) {
-            !is_null($request->user()->photo) && Storage::disk('public')->delete($request->user()->photo);
-            $validated['photo'] = $validated['photo']->store('users', 'public');
+            $user->clearMediaCollection('profile-photos');
+            $user->addMediaFromRequest('photo')->toMediaCollection('profile-photos');
         }
 
-        $user = $request->user();
         $user->update(collect($validated)->except('founded_in', 'additional_info')->toArray());
         $user->vendorDetails()->update(collect($validated)->only('founded_in', 'additional_info')->toArray());
 
