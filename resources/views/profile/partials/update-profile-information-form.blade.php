@@ -70,7 +70,7 @@
 
     {{-- Photo, Address --}}
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
-      <div x-data="imageViewer(@js($user->getFirstMediaUrl('profile-photos', 'thumb') ?: asset('storage/no-user.png')))">
+      <div x-data="imageViewer(@js($user->getFirstMediaUrl('profile-photos', 'thumb') ?: asset('images/no-user.png')))">
         <x-input-label for="photo" :value="__('Photo')" />
         <x-file-input id="photo" name="photo" type="file" accept=".jpg, .jpeg" @change="fileChosen" />
         <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">

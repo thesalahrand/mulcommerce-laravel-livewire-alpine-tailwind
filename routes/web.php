@@ -5,7 +5,8 @@ use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\ProfileController;
 
 use App\Http\Controllers\Admin\{
-    ProfileController as AdminProfileController
+    ProfileController as AdminProfileController,
+    BrandController as AdminBrandController,
 };
 
 use App\Http\Controllers\Vendor\{
@@ -60,6 +61,7 @@ Route::middleware('localization')->group(function () {
             Route::patch('/', 'update')->name('update');
             Route::delete('/', 'destroy')->name('destroy');
         });
+        Route::resource('/brands', AdminBrandController::class);
     });
 
     require __DIR__ . '/auth.php';

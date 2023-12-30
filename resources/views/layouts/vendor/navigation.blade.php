@@ -30,7 +30,7 @@
               aria-expanded="false" data-dropdown-toggle="dropdown-user">
               <span class="sr-only">Open user menu</span>
               <img class="w-8 h-8 rounded-full object-cover"
-                src="{{ auth()->user()->getFirstMediaUrl('profile-photos', 'thumb') ?:asset('storage/no-user.png') }}"
+                src="{{ auth()->user()->getFirstMediaUrl('profile-photos', 'thumb') ?:asset('images/no-user.png') }}"
                 alt="user photo">
             </button>
           </div>
