@@ -37,11 +37,17 @@
         <ul id="dropdown-brand" class="hidden py-2 space-y-2">
           <li>
             <a href="{{ route('admin.brands.index') }}"
-              class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">{{ __('Show Brands') }}</a>
+              class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+              <x-icons.arrow-right class="w-3 me-2" />
+              {{ __('Show Brands') }}
+            </a>
           </li>
           <li>
             <a href="{{ route('admin.brands.create') }}"
-              class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">{{ __('Add Brand') }}</a>
+              class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+              <x-icons.arrow-right class="w-3 me-2" />
+              {{ __('Add Brand') }}
+            </a>
           </li>
         </ul>
       </li>
