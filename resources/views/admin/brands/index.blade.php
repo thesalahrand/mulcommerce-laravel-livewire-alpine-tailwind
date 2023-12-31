@@ -4,33 +4,24 @@
   </x-slot>
 
   <div class="mt-6">
+    <div class="mb-4 flex flex-1 flex-col sm:flex-row space-y-2 sm:space-y-0 justify-between sm:items-center">
+      <form method="GET" class="flex items-center w-full sm:w-1/2">
+        <label for="voice-search" class="sr-only">Search</label>
+        <x-text-input id="search" type="search" name="s" :value="old('search', request('s'))" required autofocus
+          placeholder="{{ __('Search by brand name, slug, email, phone, website...') }}" autocomplete="search" />
+        <x-regular-button class="inline-flex items-center py-[11px] ms-2">
+          <x-icons.search class="w-4 h-4 me-2" />
+          {{ __('Search') }}
+        </x-regular-button>
+      </form>
+      <a href="{{ route('admin.brands.create') }}">
+        <x-regular-button class="inline-flex items-center">
+          <x-icons.plus class="w-4 h-4 me-2 -mt-1" />
+          {{ __('Add Brand') }}
+        </x-regular-button>
+      </a>
+    </div>
+
     @include('admin.brands.partials.show-brands-table')
-    {{-- <div
-        class="mt-6 p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-        @include('admin.profile.partials.update-profile-information-form')
-      </div>
-
-      <div
-        class="mt-6 p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-        @include('admin.profile.partials.update-password-form')
-      </div>
-
-      <div
-        class="mt-6 p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-        @include('admin.profile.partials.delete-user-form')
-      </div> --}}
-
-    {{-- <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-          <div class="max-w-xl">
-            @include('admin.profile.partials.update-password-form')
-          </div>
-        </div>
-
-        <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-          <div class="max-w-xl">
-            @include('admin.profile.partials.delete-user-form')
-          </div>
-        </div> --}}
-  </div>
   </div>
 </x-admin-app-layout>
