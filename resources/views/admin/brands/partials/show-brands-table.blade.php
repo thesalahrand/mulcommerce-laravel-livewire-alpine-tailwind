@@ -2,24 +2,12 @@
   <table class="w-full mb-4 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
       <tr>
-        <th scope="col" class="px-6 py-3">
-          ID
-        </th>
-        <th scope="col" class="px-6 py-3">
-          Name
-        </th>
-        <th scope="col" class="px-6 py-3">
-          Logo
-        </th>
-        <th scope="col" class="px-6 py-3">
-          Active
-        </th>
-        <th scope="col" class="px-6 py-3">
-          Last Updated
-        </th>
-        <th scope="col" class="px-6 py-3">
-          Action
-        </th>
+        <x-table-th sortBy='id'>ID</x-table-th>
+        <x-table-th sortBy='name'>Name</x-table-th>
+        <x-table-th>Logo</x-table-th>
+        <x-table-th sortBy='is_active'>Active</x-table-th>
+        <x-table-th sortBy='updated_at'>Last Updated</x-table-th>
+        <x-table-th>Action</x-table-th>
       </tr>
     </thead>
     <tbody>

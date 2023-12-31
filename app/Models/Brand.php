@@ -44,11 +44,7 @@ class Brand extends Model
      */
     public function scopeFilter($query, array $filters): void
     {
-        // if ($filters['tag'] ?? false) {
-        //     $query->where('tags', 'like', '%' . request('tag') . '%');
-        // }
-
-        if ($filters['s'] ?? false) {
+        if (isset($filters['s'])) {
             $s = request('s');
 
             $query->where('name', 'like', "%{$s}%")
@@ -60,6 +56,9 @@ class Brand extends Model
                 ->orWhere('founded_in', 'like', "%{$s}%")
                 ->orWhere('additional_info', 'like', "%{$s}%");
         }
-    }
 
+        if (isset($filters['sort_by']) && isset($filters['sort_type'])) {
+            $query->orderBy(request('sort_by'), request('sort_type'));
+        }
+    }
 }

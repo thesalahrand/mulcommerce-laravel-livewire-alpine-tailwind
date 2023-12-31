@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\BrandIndexRequest;
 use App\Models\Brand;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -12,9 +13,9 @@ class BrandController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index(BrandIndexRequest $request): View
     {
-        $brands = Brand::filter(request(['s']))->paginate()->withQueryString();
+        $brands = Brand::filter(request(['s', 'sort_by', 'sort_type']))->paginate()->withQueryString();
 
         return view('admin.brands.index', compact('brands'));
     }
