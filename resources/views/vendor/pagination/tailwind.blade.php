@@ -31,9 +31,8 @@
         <p class="text-sm text-gray-500 dark:text-gray-400 leading-5">
           {!! __('Showing') !!}
           @if ($paginator->firstItem())
-            <span class="font-semibold text-gray-900 dark:text-white">{{ $paginator->firstItem() }}</span>
-            {!! __('to') !!}
-            <span class="font-semibold text-gray-900 dark:text-white">{{ $paginator->lastItem() }}</span>
+            <span class="font-semibold text-gray-900 dark:text-white">{{ $paginator->firstItem() }}</span>-<span
+              class="font-semibold text-gray-900 dark:text-white">{{ $paginator->lastItem() }}</span>
           @else
             {{ $paginator->count() }}
           @endif

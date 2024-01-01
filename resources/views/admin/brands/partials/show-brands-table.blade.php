@@ -2,12 +2,12 @@
   <table class="w-full mb-4 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
       <tr>
-        <x-table-th sortBy='id'>ID</x-table-th>
-        <x-table-th sortBy='name'>Name</x-table-th>
-        <x-table-th>Logo</x-table-th>
-        <x-table-th sortBy='is_active'>Active</x-table-th>
-        <x-table-th sortBy='updated_at'>Last Updated</x-table-th>
-        <x-table-th>Action</x-table-th>
+        <x-table-th sortBy='id'>{{ __('ID') }}</x-table-th>
+        <x-table-th sortBy='name'>{{ __('Name') }}</x-table-th>
+        <x-table-th>{{ __('Logo') }}</x-table-th>
+        <x-table-th sortBy='is_active'>{{ __('Active') }}</x-table-th>
+        <x-table-th sortBy='updated_at'>{{ __('Last Updated') }}</x-table-th>
+        <x-table-th>{{ __('Action') }}</x-table-th>
       </tr>
     </thead>
     <tbody>
@@ -25,7 +25,7 @@
               alt="brand-logo">
           </td>
           <td class="px-6 py-4">
-            {{ $brand->is_active ? 'Yes' : 'No' }}
+            {{ $brand->is_active ? __('Yes') : __('No') }}
           </td>
           <td class="px-6 py-4">
             {{ $brand->updated_at->format('Y-m-d H:i A') }}
