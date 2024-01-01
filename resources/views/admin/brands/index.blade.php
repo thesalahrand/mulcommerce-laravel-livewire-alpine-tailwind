@@ -6,9 +6,11 @@
     <x-breadcrumb :breadcrumbItems="$breadcrumbItems" />
   </x-slot>
 
-  <div class="mt-4" x-data="{ brandToDeleteId: '' }">
+  <div x-data="{ idToDelete: '' }">
     <div x-data="customModalHandler('#confirm-brand-deletion-modal', false)">
-      @include('admin.brands.partials.confirm-brand-deletion-modal')
+      {{-- @include('admin.brands.partials.confirm-brand-deletion-modal') --}}
+      <x-confirm-deletion-modal htmlId="confirm-brand-deletion-modal" deleteRouteName="admin.brands.destroy"
+        title="Are you sure you want to remove this brand?" />
 
       <div class="mb-4 flex flex-1 flex-col sm:flex-row space-y-2 sm:space-y-0 justify-between sm:items-center">
         <form method="GET" class="flex items-center w-full sm:w-1/2">

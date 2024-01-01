@@ -31,7 +31,7 @@ class BrandController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
         return view('admin.brands.create');
     }
@@ -58,14 +58,15 @@ class BrandController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Brand $brand): View
     {
+        return view('admin.brands.show', compact('brand'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Brand $brand)
+    public function edit(Brand $brand): View
     {
         return view('admin.brands.edit', compact('brand'));
     }
@@ -73,7 +74,7 @@ class BrandController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(BrandUpdateRequest $request, Brand $brand)
+    public function update(BrandUpdateRequest $request, Brand $brand): RedirectResponse
     {
         $validated = $request->validated();
 
@@ -97,7 +98,7 @@ class BrandController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Request $request, Brand $brand)
+    public function destroy(Request $request, Brand $brand): RedirectResponse
     {
         $brand->delete();
         $brand->clearMediaCollection('brand-logos');
@@ -109,6 +110,6 @@ class BrandController extends Controller
             ]
         ]);
 
-        return back();
+        return strpos(url()->previous(), "/{$brand->id}") !== false ? to_route('admin.brands.index') : back();
     }
 }
