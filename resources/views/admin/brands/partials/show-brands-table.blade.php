@@ -20,18 +20,25 @@
             {{ $brand->name }}
           </td>
           <td class="px-6 py-4">
-            <img class="w-8" src="{{ $brand->logo }}" alt="">
-            {{-- <img src="{{ strpos($brand->logo, 'https') != 0 ?  : $brand->logo }}" alt=""> --}}
+            <img class="w-8 h-8 object-cover"
+              src="{{ $brand->getFirstMediaUrl('brand-logos', 'thumb') ?: asset('images/brand.png') }}"
+              alt="brand-logo">
           </td>
-          <td class="px-6 py-4 font-semibold">
-            {{ $brand->active ? 'YES' : 'NO' }}
+          <td class="px-6 py-4">
+            {{ $brand->is_active ? 'Yes' : 'No' }}
           </td>
           <td class="px-6 py-4">
             {{ $brand->updated_at->format('Y-m-d H:i A') }}
           </td>
-          <td class="px-6 py-4 flex">
-            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-            <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-2">Delete</a>
+          <td class="px-6 py-4">
+            <div class="flex items-center space-x-1">
+              <a class="text-gray-500 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                href="{{ route('admin.brands.edit', $brand->id) }}"><x-icons.eye class="w-5 h-5" /></a>
+              <a class="text-gray-500 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                href="{{ route('admin.brands.edit', $brand->id) }}"><x-icons.pencil class="w-5 h-5" /></a>
+              <a class="text-gray-500 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white cursor-pointer"
+                @click="show, brandToDeleteId = {{ $brand->id }}"><x-icons.trash class="w-5 h-5" /></a>
+            </div>
           </td>
         </tr>
       @empty

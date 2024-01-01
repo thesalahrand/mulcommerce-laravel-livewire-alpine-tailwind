@@ -1,4 +1,11 @@
 <x-admin-app-layout>
+  @php
+    $breadcrumbItems = [['text' => __('Dashboard'), 'link' => route('admin.dashboard')], ['text' => __('Edit Profile'), 'link' => route('admin.profile.edit')]];
+  @endphp
+  <x-slot name="breadcrumb">
+    <x-breadcrumb :breadcrumbItems="$breadcrumbItems" />
+  </x-slot>
+
   <x-slot name="header">
     {{ __('Edit Profile') }}
   </x-slot>

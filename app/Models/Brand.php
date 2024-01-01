@@ -6,10 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Brand extends Model
+class Brand extends Model implements HasMedia
 {
-    use HasFactory;
+    use HasFactory, HasSlug, SoftDeletes, InteractsWithMedia;
 
     /**
      * The attributes that are mass assignable.
@@ -56,9 +60,11 @@ class Brand extends Model
                 ->orWhere('founded_in', 'like', "%{$s}%")
                 ->orWhere('additional_info', 'like', "%{$s}%");
         }
+    }
 
-        if (isset($filters['sort_by']) && isset($filters['sort_type'])) {
-            $query->orderBy(request('sort_by'), request('sort_type'));
-        }
+    public function registerMediaConversions(Media $media = null): void
+    {
+        $this->addMediaConversion('thumb')
+            ->width(128);
     }
 }

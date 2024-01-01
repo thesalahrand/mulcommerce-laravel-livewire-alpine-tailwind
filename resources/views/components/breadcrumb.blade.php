@@ -1,6 +1,10 @@
 @props(['breadcrumbItems'])
 
-<nav class="h-12 border-b border-gray-200 dark:border-gray-600" aria-label="Breadcrumb">
+@php
+  $classes = auth()->user()->role === 'user' ? 'border-b border-gray-200 dark:border-gray-600' : '-ml-4 mb-2';
+@endphp
+
+<nav class="h-12 {{ $classes }}" aria-label="Breadcrumb">
   <div class="h-full max-w-screen-xl mx-auto px-4">
     <ol class="h-full inline-flex space-x-2 md:space-x-2.5 rtl:space-x-reverse">
       @foreach ($breadcrumbItems as $breadcrumbItem)
