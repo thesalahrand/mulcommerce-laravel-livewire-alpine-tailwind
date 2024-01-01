@@ -8,7 +8,6 @@
 
   <div x-data="{ idToDelete: '' }">
     <div x-data="customModalHandler('#confirm-brand-deletion-modal', false)">
-      {{-- @include('admin.brands.partials.confirm-brand-deletion-modal') --}}
       <x-confirm-deletion-modal htmlId="confirm-brand-deletion-modal" deleteRouteName="admin.brands.destroy"
         title="Are you sure you want to remove this brand?" />
 

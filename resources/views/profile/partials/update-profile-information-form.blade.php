@@ -22,13 +22,13 @@
     {{-- Name, Email --}}
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
       <div>
-        <x-input-label for="name" :value="__('Name')" />
+        <x-input-label for="name" :value="__('Name')" required="true" />
         <x-text-input id="name" name="name" type="text" :value="old('name', $user->name)" required autofocus
           autocomplete="name" />
         <x-input-error :messages="$errors->get('name')" />
       </div>
       <div>
-        <x-input-label for="email" :value="__('Email')" />
+        <x-input-label for="email" :value="__('Email')" required="true" />
         <x-text-input id="email" name="email" type="email" :value="old('email', $user->email)" required autocomplete="email" />
         <x-input-error :messages="$errors->get('email')" />
 
@@ -56,7 +56,7 @@
     {{-- Username, Phone --}}
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
       <div>
-        <x-input-label for="username" :value="__('Username')" />
+        <x-input-label for="username" :value="__('Username')" required="true" />
         <x-text-input id="username" name="username" type="text" :value="old('username', $user->username)" minlength="3" maxlength="12"
           required autocomplete="username" />
         <x-input-error :messages="$errors->get('username')" />

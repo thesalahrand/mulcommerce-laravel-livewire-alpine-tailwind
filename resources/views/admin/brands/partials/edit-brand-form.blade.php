@@ -8,7 +8,7 @@
     {{-- Name, Founded In --}}
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
       <div>
-        <x-input-label for="name" :value="__('Name')" />
+        <x-input-label for="name" :value="__('Name')" required="true" />
         <x-text-input id="name" name="name" type="text" :value="old('name', $brand->name)" required autofocus
           autocomplete="name" />
         <x-input-error :messages="$errors->get('name')" />
@@ -53,7 +53,7 @@
     {{-- Logo, Additional Info --}}
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
       <div x-data="imageViewer(@js($brand->getFirstMediaUrl('brand-logos', 'thumb') ?: asset('images/brand.png')))">
-        <x-input-label for="logo" :value="__('Logo')" />
+        <x-input-label for="logo" :value="__('Logo')" required="true" />
         <x-file-input id="logo" name="logo" type="file" accept=".jpg, .jpeg, .png" @change="fileChosen" />
         <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">
           {{ __('Your logo must be in JPG/PNG format (max 1 MB).') }}</div>

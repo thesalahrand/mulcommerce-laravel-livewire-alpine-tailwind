@@ -22,21 +22,21 @@
     </p>
 
     <div class="mt-6">
-      <x-input-label for="update_password_current_password" :value="__('Current Password')" />
+      <x-input-label for="update_password_current_password" :value="__('Current Password')" required="true" />
       <x-text-input id="update_password_current_password" name="current_password" type="password"
         autocomplete="current-password" required />
       <x-input-error :messages="$errors->updatePassword->get('current_password')" />
     </div>
 
     <div class="mt-6">
-      <x-input-label for="update_password_password" :value="__('New Password')" />
+      <x-input-label for="update_password_password" :value="__('New Password')" required="true" />
       <x-text-input id="update_password_password" name="password" type="password" autocomplete="new-password"
         required />
       <x-input-error :messages="$errors->updatePassword->get('password')" />
     </div>
 
     <div class="mt-6">
-      <x-input-label for="update_password_password_confirmation" :value="__('Confirm Password')" />
+      <x-input-label for="update_password_password_confirmation" :value="__('Confirm Password')" required="true" />
       <x-text-input id="update_password_password_confirmation" name="password_confirmation" type="password"
         autocomplete="new-password" required />
       <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" />
