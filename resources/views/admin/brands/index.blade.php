@@ -15,7 +15,7 @@
         <form method="GET" class="flex items-center w-full sm:w-1/2">
           <label for="search" class="sr-only">{{ __('Search') }}</label>
           <x-text-input id="search" type="search" name="s" :value="old('search', request('s'))" autofocus
-            placeholder="{{ __('Search by brand name, slug, email, phone, website...') }}" autocomplete="search" />
+            placeholder="{{ __('Search by brand ID, name, slug, email, phone, website...') }}" autocomplete="search" />
           <x-regular-button class="inline-flex items-center py-[11px] ms-2">
             <x-icons.search class="w-4 h-4 me-2" />
             {{ __('Search') }}

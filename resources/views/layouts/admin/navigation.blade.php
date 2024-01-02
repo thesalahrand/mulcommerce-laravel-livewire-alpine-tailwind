@@ -17,7 +17,7 @@
           <x-icons.application-logo class="h-8 me-3 fill-current text-gray-900 dark:text-white" />
           {{-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 me-3" alt="FlowBite Logo" /> --}}
           <span class="self-center hidden font-semibold sm:inline sm:text-2xl whitespace-nowrap dark:text-white">
-            Admin Panel</span>
+            {{ __('Admin Panel') }} </span>
         </a>
       </div>
       <div class="flex items-center">

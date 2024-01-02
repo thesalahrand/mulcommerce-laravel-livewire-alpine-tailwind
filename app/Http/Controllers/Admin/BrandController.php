@@ -48,7 +48,7 @@ class BrandController extends Controller
         $request->session()->flash('flash', [
             'toast-message' => [
                 'type' => 'success',
-                'message' => trans('Brand added successfully.')
+                'message' => trans('The brand has been added successfully.')
             ]
         ]);
 
@@ -88,7 +88,7 @@ class BrandController extends Controller
         $request->session()->flash('flash', [
             'toast-message' => [
                 'type' => 'success',
-                'message' => trans('Brand updated successfully.')
+                'message' => trans('The brand has been updated successfully.')
             ]
         ]);
 
@@ -100,13 +100,13 @@ class BrandController extends Controller
      */
     public function destroy(Request $request, Brand $brand): RedirectResponse
     {
-        $brand->delete();
         $brand->clearMediaCollection('brand-logos');
+        $brand->delete();
 
         $request->session()->flash('flash', [
             'toast-message' => [
                 'type' => 'success',
-                'message' => trans('Brand removed successfully.')
+                'message' => trans('The brand has been removed successfully.')
             ]
         ]);
 

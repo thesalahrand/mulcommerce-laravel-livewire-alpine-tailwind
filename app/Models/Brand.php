@@ -51,7 +51,8 @@ class Brand extends Model implements HasMedia
         if (isset($filters['s'])) {
             $s = request('s');
 
-            $query->where('name', 'like', "%{$s}%")
+            $query->where('id', 'like', "%{$s}%")
+                ->orWhere('name', 'like', "%{$s}%")
                 ->orWhere('slug', 'like', "%{$s}%")
                 ->orWhere('email', 'like', "%{$s}%")
                 ->orWhere('phone', 'like', "%{$s}%")
