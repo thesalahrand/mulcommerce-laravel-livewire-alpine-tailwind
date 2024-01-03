@@ -56,7 +56,7 @@
         <x-file-input id="logo" name="logo" type="file" accept=".jpg, .jpeg, .png" @change="fileChosen"
           required />
         <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">
-          {{ __('Your logo must be in JPG/PNG format (max 1 MB).') }}</div>
+          {{ __('The logo must be in JPG/PNG format (max 1 MB).') }}</div>
         <x-input-error :messages="$errors->get('logo')" />
         <img :src="imageUrl" class="rounded mt-2 w-16 object-cover" alt="brand-photo">
       </div>

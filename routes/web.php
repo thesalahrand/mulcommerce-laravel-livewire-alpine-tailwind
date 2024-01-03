@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\{
     ProfileController as AdminProfileController,
     BrandController as AdminBrandController,
+    CategoryController as AdminCategoryController
 };
 
 use App\Http\Controllers\Vendor\{
@@ -62,6 +63,7 @@ Route::middleware('localization')->group(function () {
             Route::delete('/', 'destroy')->name('destroy');
         });
         Route::resource('/brands', AdminBrandController::class);
+        Route::resource('/categories', AdminCategoryController::class);
     });
 
     require __DIR__ . '/auth.php';
