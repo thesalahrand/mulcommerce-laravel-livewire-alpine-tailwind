@@ -67,4 +67,14 @@ class Category extends Model implements HasMedia
         $this->addMediaConversion('thumb')
             ->width(128);
     }
+
+    /**
+     * The "booted" method of the model.
+     */
+    protected static function booted(): void
+    {
+        static::deleted(function (Category $category) {
+            $category->subcategories()->delete();
+        });
+    }
 }
