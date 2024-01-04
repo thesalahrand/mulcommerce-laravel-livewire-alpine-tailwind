@@ -68,6 +68,16 @@
       </div>
     </div>
 
+    <!-- Active -->
+    <div class="flex items-start mt-6">
+      <div class="flex items-start">
+        <div class="flex items-center h-5">
+          <x-checkbox-input id="is_active" name="is_active" :checked="$brand->is_active" />
+        </div>
+        <x-input-label for="is_active" :value="__('Active')" class="ms-2 mb-0" />
+      </div>
+    </div>
+
     <x-regular-button class="mt-6">{{ __('Save') }}</x-regular-button>
   </form>
 </section>

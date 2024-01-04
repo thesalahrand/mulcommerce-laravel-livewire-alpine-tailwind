@@ -77,6 +77,7 @@ class CategoryController extends Controller
     public function update(CategoryUpdateRequest $request, Category $category): RedirectResponse
     {
         $validated = $request->validated();
+        $validated['is_active'] = request('is_active') ? 1 : 0;
 
         $category->update($validated);
 

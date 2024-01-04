@@ -31,7 +31,7 @@ class BrandUpdateRequest extends FormRequest
             'website' => ['nullable', 'string', 'max:255', 'url'],
             'country_of_origin' => ['nullable', 'string', 'max:255'],
             'logo' => ['nullable', 'file', 'mimetypes:image/jpeg,image/png', 'max:1024'],
-            'additional_info' => ['nullable', 'string', 'max:500']
+            'additional_info' => ['nullable', 'string', 'max:500'],
         ];
     }
 }

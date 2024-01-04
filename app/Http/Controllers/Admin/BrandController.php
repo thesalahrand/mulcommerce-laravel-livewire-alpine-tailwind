@@ -77,6 +77,7 @@ class BrandController extends Controller
     public function update(BrandUpdateRequest $request, Brand $brand): RedirectResponse
     {
         $validated = $request->validated();
+        $validated['is_active'] = request('is_active') ? 1 : 0;
 
         $brand->update($validated);
 

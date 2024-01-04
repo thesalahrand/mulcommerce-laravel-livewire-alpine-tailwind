@@ -75,6 +75,7 @@ class SubcategoryController extends Controller
     public function update(SubcategoryUpdateRequest $request, Subcategory $subcategory): RedirectResponse
     {
         $validated = $request->validated();
+        $validated['is_active'] = request('is_active') ? 1 : 0;
 
         $subcategory->update($validated);
 
