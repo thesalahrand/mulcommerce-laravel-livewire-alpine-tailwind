@@ -100,4 +100,22 @@ class SubcategoryController extends Controller
     {
         return view('admin.subcategories.show', compact('subcategory'));
     }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Request $request, Subcategory $subcategory): RedirectResponse
+    {
+        $subcategory->clearMediaCollection('subcategory-photos');
+        $subcategory->delete();
+
+        $request->session()->flash('flash', [
+            'toast-message' => [
+                'type' => 'success',
+                'message' => trans('The subcategory has been removed successfully.')
+            ]
+        ]);
+
+        return strpos(url()->previous(), "/{$subcategory->id}") !== false ? to_route('admin.subcategories.index') : back();
+    }
 }

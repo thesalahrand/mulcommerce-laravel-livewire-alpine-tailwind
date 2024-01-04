@@ -8,8 +8,8 @@
 
   <div x-data="{ idToDelete: '' }">
     <div x-data="customModalHandler('#confirm-subcategory-deletion-modal', false)">
-      {{-- <x-confirm-deletion-modal htmlId="confirm-subcategory-deletion-modal" deleteRouteName="admin.subcategories.destroy"
-          title="Are you sure you want to remove this category?" /> --}}
+      <x-confirm-deletion-modal htmlId="confirm-subcategory-deletion-modal" deleteRouteName="admin.subcategories.destroy"
+        title="Are you sure you want to remove this subcategory?" />
 
       <div class="mb-4 flex flex-1 flex-col sm:flex-row space-y-2 sm:space-y-0 justify-between sm:items-center">
         <form method="GET" class="flex items-center w-full sm:w-1/2">
