@@ -12,9 +12,9 @@
     {{ $slot }}
     @if (isset($sortBy))
       <form>
-        @if (request('s'))
+        {{-- @if (request('s'))
           <input type="hidden" name="s" value="{{ request('s') }}">
-        @endif
+        @endif --}}
         <input type="hidden" name="sort_by" value="{{ $sortBy }}" />
         <input type="hidden" name="sort_type" value="{{ $sortAscByThisKey ? 'desc' : 'asc' }}" />
         <button type="submit" class="flex flex-col items-center space-y-px ms-2">

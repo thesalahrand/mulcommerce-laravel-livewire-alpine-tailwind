@@ -10,9 +10,9 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Category extends Model implements HasMedia
+class Subcategory extends Model implements HasMedia
 {
     use HasFactory, HasSlug, SoftDeletes, InteractsWithMedia;
 
@@ -22,6 +22,7 @@ class Category extends Model implements HasMedia
      * @var array<int, string>
      */
     protected $fillable = [
+        'category_id',
         'name',
         'slug',
         'photo',
@@ -30,11 +31,11 @@ class Category extends Model implements HasMedia
     ];
 
     /**
-     * Get the subcategories for the category.
+     * Get the category that owns the subcategory.
      */
-    public function subcategories(): HasMany
+    public function category(): BelongsTo
     {
-        return $this->hasMany(Subcategory::class);
+        return $this->belongsTo(Category::class);
     }
 
     /**
@@ -55,10 +56,10 @@ class Category extends Model implements HasMedia
         if (isset($filters['s'])) {
             $s = request('s');
 
-            $query->where('id', 'like', "%{$s}%")
-                ->orWhere('name', 'like', "%{$s}%")
-                ->orWhere('slug', 'like', "%{$s}%")
-                ->orWhere('additional_info', 'like', "%{$s}%");
+            $query->where('subcategories.id', 'like', "%{$s}%")
+                ->orWhere('subcategories.name', 'like', "%{$s}%")
+                ->orWhere('subcategories.slug', 'like', "%{$s}%")
+                ->orWhere('subcategories.additional_info', 'like', "%{$s}%");
         }
     }
 

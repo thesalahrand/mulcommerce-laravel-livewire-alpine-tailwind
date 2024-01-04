@@ -7,7 +7,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\{
     ProfileController as AdminProfileController,
     BrandController as AdminBrandController,
-    CategoryController as AdminCategoryController
+    CategoryController as AdminCategoryController,
+    SubcategoryController as AdminSubcategoryController
 };
 
 use App\Http\Controllers\Vendor\{
@@ -64,6 +65,7 @@ Route::middleware('localization')->group(function () {
         });
         Route::resource('/brands', AdminBrandController::class);
         Route::resource('/categories', AdminCategoryController::class);
+        Route::resource('/subcategories', AdminSubcategoryController::class);
     });
 
     require __DIR__ . '/auth.php';
