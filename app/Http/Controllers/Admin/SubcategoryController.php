@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Subcategory;
 use App\Http\Requests\Admin\SubcategoryIndexRequest;
+use App\Http\Requests\Admin\SubcategoryStoreRequest;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class SubcategoryController extends Controller
 {
@@ -25,6 +27,35 @@ class SubcategoryController extends Controller
             ->withQueryString();
 
         return view('admin.subcategories.index', compact('subcategories'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create(): View
+    {
+        $categories = Category::latest()->select('id as value', 'name as text')->get()->toArray();
+
+        return view('admin.subcategories.create', compact('categories'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(SubcategoryStoreRequest $request): RedirectResponse
+    {
+        $subcategory = Subcategory::create($request->validated());
+
+        $subcategory->addMediaFromRequest('photo')->toMediaCollection('subcategory-photos');
+
+        $request->session()->flash('flash', [
+            'toast-message' => [
+                'type' => 'success',
+                'message' => trans('The subcategory has been added successfully.')
+            ]
+        ]);
+
+        return to_route('admin.subcategories.index');
     }
 
     /**
