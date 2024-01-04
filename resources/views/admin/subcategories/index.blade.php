@@ -21,8 +21,7 @@
             {{ __('Search') }}
           </x-regular-button>
         </form>
-        {{-- <a href="{{ route('admin.categories.create') }}"> --}}
-        <a>
+        <a href="{{ route('admin.subcategories.create') }}">
           <x-regular-button class="inline-flex items-center">
             <x-icons.plus class="w-4 h-4 me-2 -mt-1" />
             {{ __('Add Subcategory') }}

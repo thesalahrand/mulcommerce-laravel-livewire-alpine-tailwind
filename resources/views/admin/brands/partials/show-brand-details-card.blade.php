@@ -1,5 +1,5 @@
 <section class="w-full max-w-3xl">
-  <div class="space-y-2 text-sm">
+  <div class="space-y-4 text-sm">
     <div class="grid grid-cols-2 gap-x-2">
       <h6 class="text-gray-700  dark:text-gray-400 font-semibold">{{ __('Name') }}</h6>
       <p class="text-gray-500 dark:text-gray-400">{{ $brand->name }}</p>

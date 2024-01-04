@@ -26,4 +26,12 @@ class SubcategoryController extends Controller
 
         return view('admin.subcategories.index', compact('subcategories'));
     }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Subcategory $subcategory): View
+    {
+        return view('admin.subcategories.show', compact('subcategory'));
+    }
 }
