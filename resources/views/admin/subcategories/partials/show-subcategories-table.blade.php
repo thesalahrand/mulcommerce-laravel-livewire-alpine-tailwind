@@ -41,9 +41,9 @@
             <div class="flex items-center space-x-1">
               <a class="text-gray-500 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
                 href="{{ route('admin.subcategories.show', $subcategory->id) }}"><x-icons.eye class="w-5 h-5" /></a>
-              {{--  <a class="text-gray-500 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                  href="{{ route('admin.categories.edit', $category->id) }}"><x-icons.pencil class="w-5 h-5" /></a>
-                <a class="text-gray-500 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white cursor-pointer"
+              <a class="text-gray-500 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                href="{{ route('admin.subcategories.edit', $subcategory->id) }}"><x-icons.pencil class="w-5 h-5" /></a>
+              {{--  <a class="text-gray-500 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white cursor-pointer"
                   @click="show, idToDelete = {{ $category->id }}"><x-icons.trash class="w-5 h-5" /></a> --}}
             </div>
           </td>

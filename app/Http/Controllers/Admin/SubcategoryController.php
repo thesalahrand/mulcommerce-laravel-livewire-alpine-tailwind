@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Subcategory;
 use App\Http\Requests\Admin\SubcategoryIndexRequest;
 use App\Http\Requests\Admin\SubcategoryStoreRequest;
+use App\Http\Requests\Admin\SubcategoryUpdateRequest;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -52,6 +53,40 @@ class SubcategoryController extends Controller
             'toast-message' => [
                 'type' => 'success',
                 'message' => trans('The subcategory has been added successfully.')
+            ]
+        ]);
+
+        return to_route('admin.subcategories.index');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Subcategory $subcategory): View
+    {
+        $categories = Category::latest()->select('id as value', 'name as text')->get()->toArray();
+
+        return view('admin.subcategories.edit', compact('subcategory', 'categories'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(SubcategoryUpdateRequest $request, Subcategory $subcategory): RedirectResponse
+    {
+        $validated = $request->validated();
+
+        $subcategory->update($validated);
+
+        if (isset($validated['photo'])) {
+            $subcategory->clearMediaCollection('subcategory-photos');
+            $subcategory->addMediaFromRequest('photo')->toMediaCollection('subcategory-photos');
+        }
+
+        $request->session()->flash('flash', [
+            'toast-message' => [
+                'type' => 'success',
+                'message' => trans('The subcategory has been updated successfully.')
             ]
         ]);
 
