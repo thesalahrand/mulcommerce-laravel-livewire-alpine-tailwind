@@ -10,14 +10,14 @@
       @foreach ($breadcrumbItems as $breadcrumbItem)
         <li class="inline-flex items-center">
           @if (!$loop->first)
-            <x-icons.chevron-right-icon class="w-3 h-3 me-2" />
+            <x-icons.chevron-right-icon class="w-3 h-3 me-2 dark:text-white" />
           @endif
 
           <a href="{{ $breadcrumbItem['link'] }}"
             class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
 
             @if ($loop->first)
-              <x-icons.home class="w-3 h-3 me-2 -mt-px" />
+              <x-icons.home class="w-3 h-3 me-2 -mt-0.5" />
             @endif
             {{ $breadcrumbItem['text'] }}
           </a>

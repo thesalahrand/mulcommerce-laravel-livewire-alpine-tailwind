@@ -32,12 +32,15 @@
           </td>
           <td class="px-6 py-4">
             <div class="flex items-center space-x-1">
-              <a class="text-gray-500 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                href="{{ route('admin.brands.show', $brand->id) }}"><x-icons.eye class="w-5 h-5" /></a>
-              <a class="text-gray-500 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                href="{{ route('admin.brands.edit', $brand->id) }}"><x-icons.pencil class="w-5 h-5" /></a>
-              <a class="text-gray-500 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white cursor-pointer"
-                @click="show, idToDelete = {{ $brand->id }}"><x-icons.trash class="w-5 h-5" /></a>
+              <x-td-action-button href="{{ route('admin.brands.show', $brand->id) }}">
+                <x-icons.eye class="w-5 h-5" />
+              </x-td-action-button>
+              <x-td-action-button href="{{ route('admin.brands.edit', $brand->id) }}">
+                <x-icons.pencil class="w-5 h-5" />
+              </x-td-action-button>
+              <x-td-action-button class="cursor-pointer" @click="show, idToDelete = {{ $brand->id }}">
+                <x-icons.trash class="w-5 h-5" />
+              </x-td-action-button>
             </div>
           </td>
         </tr>
