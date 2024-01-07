@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 
 use App\Http\Controllers\Admin\{
     ProfileController as AdminProfileController,
+    VendorController as AdminVendorController,
     BrandController as AdminBrandController,
     CategoryController as AdminCategoryController,
     SubcategoryController as AdminSubcategoryController
@@ -63,6 +64,7 @@ Route::middleware('localization')->group(function () {
             Route::patch('/', 'update')->name('update');
             Route::delete('/', 'destroy')->name('destroy');
         });
+        Route::resource('/vendors', AdminVendorController::class);
         Route::resource('/brands', AdminBrandController::class);
         Route::resource('/categories', AdminCategoryController::class);
         Route::resource('/subcategories', AdminSubcategoryController::class);

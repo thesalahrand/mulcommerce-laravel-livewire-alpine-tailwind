@@ -20,8 +20,8 @@ class SubcategoryController extends Controller
     public function index(SubcategoryIndexRequest $request): View
     {
         $subcategories = Subcategory::with(['media', 'category:id,name'])
-            ->filter(request(['s']))
             ->leftJoin('categories', 'subcategories.category_id', '=', 'categories.id')
+            ->filter(request(['s']))
             ->orderBy(request('sort_by', 'updated_at'), request('sort_type', 'desc'))
             ->select('subcategories.id', 'subcategories.category_id', 'subcategories.name', 'subcategories.is_active', 'subcategories.updated_at')
             ->paginate()
