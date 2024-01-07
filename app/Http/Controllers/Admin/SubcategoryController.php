@@ -117,6 +117,6 @@ class SubcategoryController extends Controller
             ]
         ]);
 
-        return strpos(url()->previous(), "/{$subcategory->id}") !== false ? to_route('admin.subcategories.index') : back();
+        return str()->contains(url()->previous(), "/{$subcategory->id}") ? to_route('admin.subcategories.index') : back();
     }
 }

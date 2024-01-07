@@ -16,7 +16,8 @@
           <span class="flex-1 text-left rtl:text-right whitespace-nowrap">{{ __('Brands') }}</span>
           <x-icons.arrow-down class="w-3 h-3" />
         </button>
-        <ul id="dropdown-brand" class="{{ strpos(request()->route()->getName(),'admin.brands') !== 0? 'hidden': '' }}">
+        <ul id="dropdown-brand"
+          class="{{ str()->contains(request()->route()->getName(),'admin.brands')? '': 'hidden' }}">
           <li>
             <a href="{{ route('admin.brands.index') }}"
               class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-6 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
@@ -41,7 +42,7 @@
           <x-icons.arrow-down class="w-3 h-3" />
         </button>
         <ul id="dropdown-category"
-          class="{{ strpos(request()->route()->getName(),'admin.categories') !== 0? 'hidden': '' }}">
+          class="{{ str()->contains(request()->route()->getName(),'admin.categories')? '': 'hidden' }}">
           <li>
             <a href="{{ route('admin.categories.index') }}"
               class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-6 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
@@ -66,7 +67,7 @@
           <x-icons.arrow-down class="w-3 h-3" />
         </button>
         <ul id="dropdown-subcategory"
-          class="{{ strpos(request()->route()->getName(),'admin.subcategories') !== 0? 'hidden': '' }}">
+          class="{{ str()->contains(request()->route()->getName(),'admin.subcategories')? '': 'hidden' }}">
           <li>
             <a href="{{ route('admin.subcategories.index') }}"
               class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-6 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">

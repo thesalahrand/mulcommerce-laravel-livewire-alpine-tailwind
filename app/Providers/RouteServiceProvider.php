@@ -23,10 +23,7 @@ class RouteServiceProvider extends ServiceProvider
         return [
             UserRole::USER->value => 'home',
             UserRole::VENDOR->value => 'vendor.dashboard',
-            UserRole::ADMIN->value => 'admin.dashboard',
-        // UserRole::USER->value => route('home'),
-        // UserRole::VENDOR->value => route('vendor.dashboard'),
-        // UserRole::ADMIN->value => route('admin.dashboard')
+            UserRole::ADMIN->value => 'admin.dashboard'
         ][$role];
     }
 

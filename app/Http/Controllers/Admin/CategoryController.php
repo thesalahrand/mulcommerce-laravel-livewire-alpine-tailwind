@@ -111,6 +111,6 @@ class CategoryController extends Controller
             ]
         ]);
 
-        return strpos(url()->previous(), "/{$category->id}") !== false ? to_route('admin.categories.index') : back();
+        return str()->contains(url()->previous(), "/{$category->id}") ? to_route('admin.categories.index') : back();
     }
 }

@@ -111,6 +111,6 @@ class BrandController extends Controller
             ]
         ]);
 
-        return strpos(url()->previous(), "/{$brand->id}") !== false ? to_route('admin.brands.index') : back();
+        return str()->contains(url()->previous(), "/{$brand->id}") ? to_route('admin.brands.index') : back();
     }
 }

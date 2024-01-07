@@ -1,6 +1,6 @@
 <x-admin-app-layout>
   @php
-    $breadcrumbItems = [['text' => __('Dashboard'), 'link' => route('admin.dashboard')], ['text' => __('Subcategories'), 'link' => strpos(url()->previous(), route('admin.subcategories.index') . '?') !== false ? url()->previous() : route('admin.subcategories.index')], ['text' => $subcategory->name, 'link' => route('admin.subcategories.edit', $subcategory->id)]];
+    $breadcrumbItems = [['text' => __('Dashboard'), 'link' => route('admin.dashboard')], ['text' => __('Subcategories'), 'link' => str()->contains(url()->previous(), route('admin.subcategories.index') . '?') ? url()->previous() : route('admin.subcategories.index')], ['text' => $subcategory->name, 'link' => route('admin.subcategories.edit', $subcategory->id)]];
   @endphp
   <x-slot name="breadcrumb">
     <x-breadcrumb :breadcrumbItems="$breadcrumbItems" />
