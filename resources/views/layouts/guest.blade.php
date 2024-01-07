@@ -33,10 +33,10 @@
       </h1>
     </div>
     <div
-      class="w-full max-w-sm mt-6 p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+      class="w-full max-w-md mt-6 p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
       {{ $slot }}
     </div>
-    <div class="w-full max-w-sm mt-4 flex justify-between items-center">
+    <div class="w-full max-w-md mt-4 flex justify-between items-center">
       <x-theme-toggler />
       <x-localization />
     </div>

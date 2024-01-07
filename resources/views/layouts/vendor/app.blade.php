@@ -52,6 +52,16 @@
 
   <div class="p-4 sm:ml-64 mt-12">
     <div class="pt-4">
+      {{-- Inactive Vendor  --}}
+      @if (!auth()->user()->is_active)
+        <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+          role="alert">
+          {{ __('Your account will be activated by us after checking your given information. Once it is activated, you will no longer see this notification.') }}
+          <a href="{{ route('vendor.profile.edit') }}"
+            class="font-medium underline">{{ __('Please make sure all of your information is accurate.') }}</a>
+        </div>
+      @endif
+
       <!-- Page Heading -->
       @if (isset($header))
         <h2 class="font-bold text-xl text-gray-900 dark:text-white leading-tight mb-6">

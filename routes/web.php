@@ -47,7 +47,7 @@ Route::middleware('localization')->group(function () {
         });
     });
 
-    Route::middleware(['auth', 'role:vendor'])->prefix('/vendor')->name('vendor.')->group(function () {
+    Route::middleware(['auth', 'verified', 'role:vendor'])->prefix('/vendor')->name('vendor.')->group(function () {
         Route::view('/dashboard', 'vendor.dashboard')->name('dashboard');
         Route::prefix('/profile')->controller(VendorProfileController::class)->name('profile.')->group(function () {
             Route::get('/', 'edit')->name('edit');
@@ -56,7 +56,7 @@ Route::middleware('localization')->group(function () {
         });
     });
 
-    Route::middleware(['auth', 'role:admin'])->prefix('/admin')->name('admin.')->group(function () {
+    Route::middleware(['auth', 'verified', 'role:admin'])->prefix('/admin')->name('admin.')->group(function () {
         Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
         Route::prefix('/profile')->controller(AdminProfileController::class)->name('profile.')->group(function () {
             Route::get('/', 'edit')->name('edit');

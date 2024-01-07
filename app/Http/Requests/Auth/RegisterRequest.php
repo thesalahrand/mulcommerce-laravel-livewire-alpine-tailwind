@@ -24,9 +24,13 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'role' => ['required', 'string', 'in:user,vendor'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'username' => ['required', 'string', 'lowercase', 'min:3', 'max:12', 'regex:/^[a-z0-9_]+$/', 'unique:' . User::class],
+            'phone' => ['nullable', 'required_if:role,vendor', 'string', 'max:255'],
+            'address' => ['nullable', 'required_if:role,vendor', 'string', 'max:255'],
+            'photo' => ['nullable', 'required_if:role,vendor', 'file', 'mimetypes:image/jpeg', 'max:1024'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ];
     }

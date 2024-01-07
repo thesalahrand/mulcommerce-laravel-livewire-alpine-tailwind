@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\RegisterRequest;
 use App\Models\User;
+use App\Models\VendorDetail;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
@@ -32,19 +33,20 @@ class RegisteredUserController extends Controller
     public function store(RegisterRequest $request): RedirectResponse
     {
         $validated = $request->validated();
+        $validated['is_active'] = $validated['role'] === 'vendor' ? 0 : 1;
 
-        $user = User::create([
-            'name' => $validated['name'],
-            'email' => $validated['email'],
-            'username' => $validated['username'],
-            'password' => Hash::make($validated['password']),
-        ]);
+        if ($validated['role'] === 'user')
+            $validated = collect($validated)->except('phone', 'address', 'photo')->toArray();
 
-        event(new Registered($user));
+        $user = User::create($validated);
+
+        if ($validated['role'] === 'vendor')
+            VendorDetail::create(['user_id' => $user->id]);
+
+        // event(new Registered($user));
 
         Auth::login($user);
 
-        dd(redirect()->intended());
-        return redirect(RouteServiceProvider::getHomeUrl(User::find($user->id)->role));
+        return to_route(RouteServiceProvider::getHomeUrl($validated['role']));
     }
 }
