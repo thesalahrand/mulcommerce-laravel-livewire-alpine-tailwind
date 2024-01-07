@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class VendorController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
         $vendors = User::with('vendorDetails')
             ->leftJoin('vendor_details', 'users.id', '=', 'vendor_details.user_id')
@@ -44,9 +45,14 @@ class VendorController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(User $vendor): View
     {
-        //
+        if ($vendor->role !== 'vendor')
+            back();
+
+        $vendor = $vendor->load('vendorDetails');
+
+        return view('admin.vendors.show', compact('vendor'));
     }
 
     /**
