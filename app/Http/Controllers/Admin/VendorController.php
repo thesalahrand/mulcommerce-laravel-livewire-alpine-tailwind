@@ -90,4 +90,22 @@ class VendorController extends Controller
 
         return str()->contains(url()->previous(), "/{$vendor->id}") ? to_route('admin.vendors.index') : back();
     }
+
+    public function toggleStatus(Request $request, User $vendor)
+    {
+        if ($vendor->role !== 'vendor')
+            back();
+
+        $vendor->is_active = !$vendor->is_active;
+        $vendor->save();
+
+        $request->session()->flash('flash', [
+            'toast-message' => [
+                'type' => 'success',
+                'message' => trans('The vendor has been ' . ($vendor->is_active ? 'activated' : 'deactivated') . ' successfully.')
+            ]
+        ]);
+
+        return back();
+    }
 }

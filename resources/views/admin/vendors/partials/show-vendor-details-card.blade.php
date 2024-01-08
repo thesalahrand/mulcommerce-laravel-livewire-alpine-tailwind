@@ -42,7 +42,10 @@
     </div>
     <div class="grid grid-cols-2 gap-x-2">
       <h6 class="text-gray-700  dark:text-gray-400 font-semibold">{{ __('Active') }}</h6>
-      <p class="text-gray-500 dark:text-gray-400">{{ $vendor->is_active ? __('Yes') : __('No') }}</p>
+      <div class="flex items-center space-x-1 text-gray-500 dark:text-gray-400">
+        <span>{{ $vendor->is_active ? __('Yes') : __('No') }}</span>
+        @include('admin.vendors.partials.toggle-vendor-status-form')
+      </div>
     </div>
     <div class="grid grid-cols-2 gap-x-2">
       <h6 class="text-gray-700  dark:text-gray-400 font-semibold">{{ __('Additional Info') }}</h6>

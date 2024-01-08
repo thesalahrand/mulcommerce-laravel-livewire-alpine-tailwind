@@ -64,7 +64,8 @@ Route::middleware('localization')->group(function () {
             Route::patch('/', 'update')->name('update');
             Route::delete('/', 'destroy')->name('destroy');
         });
-        Route::resource('/vendors', AdminVendorController::class);
+        Route::resource('/vendors', AdminVendorController::class)->only('index', 'show', 'destroy');
+        Route::patch('/vendors/{vendor}/toggle-status', [AdminVendorController::class, 'toggleStatus'])->name('vendors.toggle-status');
         Route::resource('/brands', AdminBrandController::class);
         Route::resource('/categories', AdminCategoryController::class);
         Route::resource('/subcategories', AdminSubcategoryController::class);

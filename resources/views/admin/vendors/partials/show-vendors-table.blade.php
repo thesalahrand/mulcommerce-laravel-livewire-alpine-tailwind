@@ -31,7 +31,10 @@
             {{ $vendor->phone }}
           </td>
           <td class="px-6 py-4">
-            {{ $vendor->is_active ? __('Yes') : __('No') }}
+            <div class="flex items-center space-x-1">
+              <span>{{ $vendor->is_active ? __('Yes') : __('No') }}</span>
+              @include('admin.vendors.partials.toggle-vendor-status-form')
+            </div>
           </td>
           <td class="px-6 py-4">
             {{ $vendor->updated_at->format('Y-m-d H:i A') }}

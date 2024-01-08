@@ -183,6 +183,8 @@
     "The subcategory has been added successfully.": "সাবক্যাটাগরিটি সফলভাবে যুক্ত করা হয়েছে।",
     "The subcategory has been removed successfully.": "সাবক্যাটাগরিটি সফলভাবে মুছে ফেলা হয়েছে।",
     "The subcategory has been updated successfully.": "সাবক্যাটাগরিটি সফলভাবে আপডেট করা হয়েছে।",
+    "The vendor has been activated successfully.": "বিক্রেতাটিকে সফলভাবে সক্রিয় করা হয়েছে।",
+    "The vendor has been deactivated successfully.": "বিক্রেতাটিকে সফলভাবে নিষ্ক্রিয় করা হয়েছে।",
     "The vendor has been removed successfully.": "বিক্রেতাটিকে সফলভাবে মুছে ফেলা হয়েছে।",
     "The given data was invalid.": "প্রদত্ত তথ্য অবৈধ ছিল।",
     "The logo must be in JPG/PNG format (max 1 MB).": "লোগোটি JPG/PNG ফর্ম্যাটে হতে হবে (সর্বোচ্চ 1 MB)।",
