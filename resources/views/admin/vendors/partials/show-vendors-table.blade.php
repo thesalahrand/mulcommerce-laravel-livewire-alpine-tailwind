@@ -41,12 +41,9 @@
               <x-td-action-button href="{{ route('admin.vendors.show', $vendor->id) }}">
                 <x-icons.eye class="w-5 h-5" />
               </x-td-action-button>
-              {{-- <x-td-action-button href="{{ route('admin.brands.edit', $brand->id) }}">
-                <x-icons.pencil class="w-5 h-5" />
-              </x-td-action-button>
-              <x-td-action-button class="cursor-pointer" @click="show, idToDelete = {{ $brand->id }}">
+              <x-td-action-button class="cursor-pointer" @click="show, idToDelete = {{ $vendor->id }}">
                 <x-icons.trash class="w-5 h-5" />
-              </x-td-action-button> --}}
+              </x-td-action-button>
             </div>
           </td>
         </tr>

@@ -7,18 +7,18 @@
   </x-slot>
 
   <div x-data="{ idToDelete: '' }">
-    {{-- <div x-data="customModalHandler('#confirm-brand-deletion-modal', false)">
-      <x-confirm-deletion-modal htmlId="confirm-brand-deletion-modal" deleteRouteName="admin.brands.destroy"
-        title="Are you sure you want to remove this brand?" /> --}}
+    <div x-data="customModalHandler('#confirm-vendor-deletion-modal', false)">
+      <x-confirm-deletion-modal htmlId="confirm-vendor-deletion-modal" deleteRouteName="admin.vendors.destroy"
+        title="Are you sure you want to remove this vendor?" />
 
-    <div
-      class="p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-      <div class="flex justify-end items-center space-x-1 mb-6">
-        {{-- <a class="text-gray-500 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white cursor-pointer"
-            @click="show, idToDelete = {{ $brand->id }}"><x-icons.trash class="w-5 h-5" /></a> --}}
+      <div
+        class="p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+        <div class="flex justify-end items-center space-x-1 mb-6">
+          <x-td-action-button class="cursor-pointer" @click="show, idToDelete = {{ $vendor->id }}"><x-icons.trash
+              class="w-5 h-5" /></x-td-action-button>
+        </div>
+        @include('admin.vendors.partials.show-vendor-details-card')
       </div>
-      @include('admin.vendors.partials.show-vendor-details-card')
     </div>
-    {{-- </div> --}}
   </div>
 </x-admin-app-layout>

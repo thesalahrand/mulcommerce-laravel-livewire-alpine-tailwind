@@ -41,10 +41,8 @@ class RegisteredUserController extends Controller
         $user = User::create($validated);
 
         if ($validated['role'] === 'vendor') {
-            $user->addMediaFromRequest('photo')->toMediaCollection('vendor-photos');
-
+            $user->addMediaFromRequest('photo')->toMediaCollection('profile-photos');
             VendorDetail::create(['user_id' => $user->id]);
-
         }
 
         // event(new Registered($user));

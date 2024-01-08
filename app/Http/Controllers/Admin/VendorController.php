@@ -15,7 +15,6 @@ class VendorController extends Controller
     public function index(): View
     {
         $vendors = User::with('vendorDetails')
-            ->leftJoin('vendor_details', 'users.id', '=', 'vendor_details.user_id')
             ->vendor()
             ->filter(request(['s']))
             ->orderBy(request('sort_by', 'updated_at'), request('sort_type', 'desc'))
@@ -74,8 +73,21 @@ class VendorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request, User $vendor)
     {
-        //
+        if ($vendor->role !== 'vendor')
+            back();
+
+        $vendor->clearMediaCollection('profile-photos');
+        $vendor->delete();
+
+        $request->session()->flash('flash', [
+            'toast-message' => [
+                'type' => 'success',
+                'message' => trans('The vendor has been removed successfully.')
+            ]
+        ]);
+
+        return str()->contains(url()->previous(), "/{$vendor->id}") ? to_route('admin.vendors.index') : back();
     }
 }

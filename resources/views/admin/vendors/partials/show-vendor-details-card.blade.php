@@ -19,7 +19,7 @@
     </div>
     <div class="grid grid-cols-2 gap-x-2">
       <h6 class="text-gray-700  dark:text-gray-400 font-semibold">{{ __('Photo') }}</h6>
-      <img src="{{ $vendor->getFirstMediaUrl('vendor-photos', 'thumb') }}" class="rounded mt-2 w-16 object-cover"
+      <img src="{{ $vendor->getFirstMediaUrl('profile-photos', 'thumb') }}" class="rounded mt-2 w-16 object-cover"
         alt="vendor-photo">
     </div>
     <div class="grid grid-cols-2 gap-x-2">
