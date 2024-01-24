@@ -6,7 +6,8 @@
     </div>
     <div class="grid grid-cols-2 gap-x-2">
       <h6 class="text-gray-700  dark:text-gray-400 font-semibold">{{ __('Photo') }}</h6>
-      <img src="{{ $subcategory->getFirstMediaUrl('subcategory-photos', 'thumb') ?: asset('images/category.png') }}"
+      <img
+        src="{{ $subcategory->getFirstMediaUrl('subcategory-photos', 'thumb') ?: asset('images/placeholder-image.png') }}"
         class="rounded mt-2 w-16 object-cover" alt="subcategory-photo">
     </div>
     <div class="grid grid-cols-2 gap-x-2">

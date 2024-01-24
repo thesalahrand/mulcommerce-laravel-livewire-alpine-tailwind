@@ -14,7 +14,7 @@
 
     {{-- Photo, Additional Info --}}
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
-      <div x-data="imageViewer(@js(asset('images/category.png')))">
+      <div x-data="imageViewer(@js(asset('images/placeholder-image.png')))">
         <x-input-label for="photo" :value="__('Photo')" required="true" />
         <x-file-input id="photo" name="photo" type="file" accept=".jpg, .jpeg, .png" @change="fileChosen"
           required />

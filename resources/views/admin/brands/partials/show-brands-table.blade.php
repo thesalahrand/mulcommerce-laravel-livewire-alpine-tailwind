@@ -21,7 +21,7 @@
           </td>
           <td class="px-6 py-4">
             <img class="w-8 h-8 object-cover"
-              src="{{ $brand->getFirstMediaUrl('brand-logos', 'thumb') ?: asset('images/brand.png') }}"
+              src="{{ $brand->getFirstMediaUrl('brand-logos', 'thumb') ?: asset('images/placeholder-image.png') }}"
               alt="brand-logo">
           </td>
           <td class="px-6 py-4">

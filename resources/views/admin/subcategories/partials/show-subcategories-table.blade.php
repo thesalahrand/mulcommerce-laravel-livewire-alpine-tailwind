@@ -28,7 +28,7 @@
           </td>
           <td class="px-6 py-4">
             <img class="w-8 h-8 object-cover"
-              src="{{ $subcategory->getFirstMediaUrl('subcategory-photos', 'thumb') ?: asset('images/category.png') }}"
+              src="{{ $subcategory->getFirstMediaUrl('subcategory-photos', 'thumb') ?: asset('images/placeholder-image.png') }}"
               alt="subcategory-photo">
           </td>
           <td class="px-6 py-4">

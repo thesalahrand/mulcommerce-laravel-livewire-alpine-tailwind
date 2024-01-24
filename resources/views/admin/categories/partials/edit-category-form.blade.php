@@ -15,7 +15,7 @@
 
     {{-- Photo, Additional Info --}}
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
-      <div x-data="imageViewer(@js($category->getFirstMediaUrl('category-photos', 'thumb') ?: asset('images/category.png')))">
+      <div x-data="imageViewer(@js($category->getFirstMediaUrl('category-photos', 'thumb') ?: asset('images/placeholder-image.png')))">
         <x-input-label for="photo" :value="__('Photo')" required="true" />
         <x-file-input id="photo" name="photo" type="file" accept=".jpg, .jpeg, .png" @change="fileChosen" />
         <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">

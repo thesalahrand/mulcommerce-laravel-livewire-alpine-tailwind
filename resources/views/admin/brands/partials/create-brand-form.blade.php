@@ -51,7 +51,7 @@
 
     {{-- Logo, Additional Info --}}
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
-      <div x-data="imageViewer(@js(asset('images/brand.png')))">
+      <div x-data="imageViewer(@js(asset('images/placeholder-image.png')))">
         <x-input-label for="logo" :value="__('Logo')" required="true" />
         <x-file-input id="logo" name="logo" type="file" accept=".jpg, .jpeg, .png" @change="fileChosen"
           required />

@@ -10,7 +10,7 @@
     </div>
     <div class="grid grid-cols-2 gap-x-2">
       <h6 class="text-gray-700  dark:text-gray-400 font-semibold">{{ __('Logo') }}</h6>
-      <img src="{{ $brand->getFirstMediaUrl('brand-logos', 'thumb') ?: asset('images/brand.png') }}"
+      <img src="{{ $brand->getFirstMediaUrl('brand-logos', 'thumb') ?: asset('images/placeholder-image.png') }}"
         class="rounded mt-2 w-16 object-cover" alt="brand-photo">
     </div>
     <div class="grid grid-cols-2 gap-x-2">

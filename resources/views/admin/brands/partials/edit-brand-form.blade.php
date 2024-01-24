@@ -52,7 +52,7 @@
 
     {{-- Logo, Additional Info --}}
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
-      <div x-data="imageViewer(@js($brand->getFirstMediaUrl('brand-logos', 'thumb') ?: asset('images/brand.png')))">
+      <div x-data="imageViewer(@js($brand->getFirstMediaUrl('brand-logos', 'thumb') ?: asset('images/placeholder-image.png')))">
         <x-input-label for="logo" :value="__('Logo')" required="true" />
         <x-file-input id="logo" name="logo" type="file" accept=".jpg, .jpeg, .png" @change="fileChosen" />
         <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">
