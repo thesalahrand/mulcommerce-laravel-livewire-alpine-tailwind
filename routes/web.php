@@ -68,7 +68,7 @@ Route::middleware('localization')->group(function () {
         Route::patch('/vendors/{vendor}/toggle-status', [AdminVendorController::class, 'toggleStatus'])->name('vendors.toggle-status');
         Route::resource('/brands', AdminBrandController::class);
         Route::resource('/categories', AdminCategoryController::class);
-        Route::resource('/subcategories', AdminSubcategoryController::class);
+        // Route::resource('/subcategories', AdminSubcategoryController::class);
     });
 
     require __DIR__ . '/auth.php';

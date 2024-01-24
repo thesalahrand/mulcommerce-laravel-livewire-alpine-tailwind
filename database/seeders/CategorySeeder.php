@@ -12,6 +12,10 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Category::factory()->count(25)->hasSubcategories(5)->create();
+        \App\Models\Category::factory()->count(100)->create();
+
+        \App\Models\Category::all()->each(function ($category) {
+            $category->update(['parent_id' => fake()->boolean(90) || $category->id === 1 ? rand(1, $category->id - 1) : null]);
+        });
     }
 }
